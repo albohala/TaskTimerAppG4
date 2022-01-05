@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+    android:background="@color/lightgray">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_cell_bg">
+
+        <LinearLayout
+            android:id="@+id/llNameDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/tvNameSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="18dp"
+                android:textColor="@color/orange"/>
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Description"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTimeSmall"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/llNameDescription"
+            android:background="@drawable/custom_time_bg"
+            android:gravity="right"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:text="00:00"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</LinearLayout>
