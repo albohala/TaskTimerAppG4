@@ -1,7 +1,7 @@
 package com.example.tasktimerappgroup4.Repository
 
 import androidx.lifecycle.LiveData
-import com.example.tasktimerappgroup4.Dao.TasksDao
+import com.example.tasktimerappgroup4.TasksDao
 import com.example.tasktimerappgroup4.Model.Tasks
 
 
