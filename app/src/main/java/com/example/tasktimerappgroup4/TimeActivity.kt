@@ -23,9 +23,9 @@ class TimeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_time)
 
         // Initializing variables from item_row
-        tvTimeSmall = findViewById(R.id.tvTimeSmall)
-        tvNameSmall = findViewById(R.id.tvNameSmall)
-        tvDescription = findViewById(R.id.tvDescription)
+//        tvTimeSmall = findViewById(R.id.tvTimeSmall)
+//        tvNameSmall = findViewById(R.id.tvNameSmall)
+//        tvDescription = findViewById(R.id.tvDescription)
 
         // Initializing variables from activity_time
         tvTimeBig = findViewById(R.id.tvTimeBig)
