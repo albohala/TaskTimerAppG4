@@ -13,6 +13,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+// Comment
+
 class MainActivity : AppCompatActivity() {
     // Variables from activity_main
     private lateinit var clMain: ConstraintLayout
