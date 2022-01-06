@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             // Add data to recycle view
             dialogBuild()
         }
+
         // Comment
     }
     private fun dialogBuild(){
