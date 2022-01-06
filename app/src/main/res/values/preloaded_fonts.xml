@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/chathura</item>
+        <item>@font/crushed</item>
+        <item>@font/dosis_medium</item>
+    </array>
+</resources>
