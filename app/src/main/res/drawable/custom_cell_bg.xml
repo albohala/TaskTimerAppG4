@@ -5,7 +5,8 @@
         android:radius="10dp" />
     <solid android:color="@color/white"></solid>
     <stroke
-        android:width="5dp"
-        android:color="@android:color/white" />
+        android:width="2dp"
+        android:color="@color/themed_grey" />
+
 </shape>
 
