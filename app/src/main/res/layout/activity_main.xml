@@ -5,13 +5,15 @@
     android:id="@+id/clMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MainActivity">
+    android:background="@drawable/bk"
+    android:backgroundTint="@color/themed_teal"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tvTotalTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/light_green"
+        android:background="@color/themed_teal"
         android:text="Total Time: "
         android:textColor="#6D4C41"
         android:textSize="17dp"
@@ -25,21 +27,21 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/btnAdd"
-        app:layout_constraintTop_toBottomOf="@+id/tvTotalTime"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTotalTime">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="64dp"
+        android:layout_height="63dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/custom_round_button"
+        android:background="@drawable/bt3"
         android:text="+"
         android:textColor="@color/white"
-        android:textSize="25dp"
-        android:visibility="visible"
+        android:textSize="25sp"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

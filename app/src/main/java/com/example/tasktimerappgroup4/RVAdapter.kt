@@ -26,7 +26,6 @@ class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdap
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val task = tasksList[position]
 
-
         holder.binding.apply {
 
             val title = "${task.title}"
@@ -60,25 +59,17 @@ class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdap
                 activity.taskViewModel.deleteTask(task.id)
             }
 
-
-
             //setting the total time
 
             val myIntent = Intent(holder.itemView.context, TimeActivity::class.java)
             val total = myIntent.getLongExtra("total",0)
 
-
-
-            println("here is thetotal from  getLongExtra $total")
+            println("here is the total from  getLongExtra $total")
             tvTimeSmall.text = "$total"
 
         }
 
-
-
-
     }
-
 
     override fun getItemCount(): Int {
         return tasksList.size
