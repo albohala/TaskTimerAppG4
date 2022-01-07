@@ -7,16 +7,16 @@ import com.example.tasktimerappgroup4.Model.Tasks
 
 class TasksRepository(val dao: TasksDao) {
     fun getAllTasks(): LiveData<List<Tasks>> {
-        return dao.getNotes()
+        return dao.getTasks()
     }
 
-    fun insertTasks(tasks: Tasks){
-        dao.insertNotes(tasks)
+    fun insertTask(tasks: Tasks){
+        dao.insertTask(tasks)
     }
     fun deleteTasks(id : Int){
-        dao.deleteNotes(id)
+        dao.deleteTask(id)
     }
     fun updateTasks(tasks: Tasks){
-        dao.updateNotes(tasks)
+        dao.updateTask(tasks)
     }
 }

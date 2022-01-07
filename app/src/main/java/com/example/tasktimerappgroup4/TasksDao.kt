@@ -8,15 +8,15 @@ import com.example.tasktimerappgroup4.Model.Tasks
 @Dao
 interface TasksDao {
     @Query("SELECT * FROM Tasks ")
-    fun getNotes(): LiveData<List<Tasks>>
+    fun getTasks(): LiveData<List<Tasks>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNotes(tasks: Tasks)
+    fun insertTask(tasks: Tasks)
 
     @Query("Delete From Tasks WHERE id=:id")
-    fun deleteNotes(id:Int)
+    fun deleteTask(id:Int)
 
     @Update
-    fun updateNotes(tasks: Tasks)
+    fun updateTask(tasks: Tasks)
 
 }
