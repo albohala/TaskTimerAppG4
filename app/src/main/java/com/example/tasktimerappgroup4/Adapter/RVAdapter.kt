@@ -51,15 +51,14 @@ class RVAdapter(private val activity: MainActivity) :
 
             //the cell is pressed
             cellRow.setOnClickListener {
-//                val intent = Intent(holder.itemView.context, TimeActivity::class.java)
-//                intent.putExtra("title", task.title)
-//                holder.itemView.context.startActivity(intent)
-//                val intent = Intent(holder.itemView.context, TimeActivity::class.java)
-//                intent.putExtra("taskTime",task.taskTime)
-//                intent.putExtra("title", task.title)
-//                intent.putExtra("id", task.id)
-//
-//                holder.itemView.context.startActivity(intent)
+                val intent: Intent = Intent(holder.itemView.context, TimeActivity::class.java)
+                intent.putExtra("title", task.title)
+                holder.itemView.context.startActivity(intent)
+                intent.putExtra("taskTime",task.taskTime)
+                intent.putExtra("title", task.title)
+                intent.putExtra("id", task.id)
+
+                holder.itemView.context.startActivity(intent)
             }
 
 
@@ -99,13 +98,13 @@ class RVAdapter(private val activity: MainActivity) :
                 }
 
                 dialogBuilder.show()
-                //                val intent = Intent(holder.itemView.context, updateActivity::class.java)
-//                intent.putExtra("id", task.id)
-//                intent.putExtra("title", task.title)
-//                intent.putExtra("description", task.description)
-//                intent.putExtra("taskTime", task.taskTime)
-//                intent.putExtra("isRunning", task.isRunning)
-//                holder.itemView.context.startActivity(intent)
+                                val intent = Intent(holder.itemView.context, updateActivity::class.java)
+                intent.putExtra("id", task.id)
+                intent.putExtra("title", task.title)
+                intent.putExtra("description", task.description)
+                intent.putExtra("taskTime", task.taskTime)
+                intent.putExtra("isRunning", task.isRunning)
+                holder.itemView.context.startActivity(intent)
 
             }
 
@@ -116,17 +115,14 @@ class RVAdapter(private val activity: MainActivity) :
             }
 
 
-
-            //setting the total time for rach task
+            //setting the total time for each task
             val timeConverted = timeCoverter(task.taskTime)
             tvTimeSmall.text = "$timeConverted"
-
 
             //setting the total time for all tasks
 
         }
     }
-
 
 
     fun timeCoverter(total: Long): String{
