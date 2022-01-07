@@ -14,10 +14,14 @@ class TaskViewModel(application: Application): AndroidViewModel(application) {
     private val repository: TasksRepository
     private val tasks: LiveData<List<Tasks>>
 
+    private var tasksList: ArrayList<Tasks>
+
     init {
         val tasksDao = TaskDatabase.getDatabaseInstance(application).myTasksDao()
         repository = TasksRepository(tasksDao)
         tasks = repository.getAllTasks()
+
+        tasksList = arrayListOf()
     }
 
     fun getAllTasks(): LiveData<List<Tasks>>{
@@ -33,8 +37,7 @@ class TaskViewModel(application: Application): AndroidViewModel(application) {
 
     fun updateTask(task:Tasks){
         CoroutineScope(IO).launch {
-
-            repository.insertTask(task)
+            repository.updateTasks(task)
         }
     }
 
@@ -44,17 +47,15 @@ class TaskViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-
-
-
-//    @PrimaryKey(autoGenerate = true)
-//    var id: Int ,
-//    var title: String,
-//    var description: String,
-//    var taskTime: Long,
-//    var isRunning : Boolean
-
-
-
+    fun updateTaskTime(taskTime: Long, givenPk: Int) {
+        CoroutineScope(IO).launch {
+            repository.updateTaskTime(taskTime, givenPk)
+        }
+    }
+    fun updateTaskStatus(status: Boolean, givenId: Int) {
+        CoroutineScope(IO).launch {
+            repository.updateTaskStatus(status, givenId)
+        }
+    }
 
 }

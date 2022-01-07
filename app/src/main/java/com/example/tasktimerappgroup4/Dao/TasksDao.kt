@@ -1,4 +1,4 @@
-package com.example.tasktimerappgroup4
+package com.example.tasktimerappgroup4.Dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
@@ -19,4 +19,9 @@ interface TasksDao {
     @Update
     fun updateTask(tasks: Tasks)
 
+    @Query("UPDATE Tasks SET taskTime = :taskTime WHERE id = :givenId")
+    fun updateTaskTime(taskTime: Long, givenId: Int)
+
+    @Query("UPDATE Tasks SET isRunning = :status WHERE id = :givenId")
+    fun updateTaskStatus(status: Boolean, givenId: Int)
 }

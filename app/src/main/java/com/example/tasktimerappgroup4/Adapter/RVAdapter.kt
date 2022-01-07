@@ -1,4 +1,4 @@
-package com.example.tasktimerappgroup4
+package com.example.tasktimerappgroup4.Adapter
 
 import android.app.Dialog
 import android.content.Context
@@ -19,6 +19,8 @@ import kotlinx.android.synthetic.main.dialog_builder_add.*
 import kotlinx.android.synthetic.main.dialog_builder_add.etTitle
 import kotlinx.android.synthetic.main.dialog_builder_edit.*
 
+import java.util.concurrent.TimeUnit
+
 class RVAdapter(private val activity: MainActivity) :
     RecyclerView.Adapter<RVAdapter.ItemViewHolder>() {
 
@@ -34,7 +36,6 @@ class RVAdapter(private val activity: MainActivity) :
         )
 
     }
-
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val task = tasksList[position]
 
@@ -51,7 +52,14 @@ class RVAdapter(private val activity: MainActivity) :
 //                val intent = Intent(holder.itemView.context, TimeActivity::class.java)
 //                intent.putExtra("title", task.title)
 //                holder.itemView.context.startActivity(intent)
+//                val intent = Intent(holder.itemView.context, TimeActivity::class.java)
+//                intent.putExtra("taskTime",task.taskTime)
+//                intent.putExtra("title", task.title)
+//                intent.putExtra("id", task.id)
+//
+//                holder.itemView.context.startActivity(intent)
             }
+
 
             //the edit button pressed
             btnEdit.setOnClickListener {
@@ -99,20 +107,36 @@ class RVAdapter(private val activity: MainActivity) :
 
             }
 
+
             //the delete button pressed
             btnDelete.setOnClickListener {
                 activity.taskViewModel.deleteTask(task.id)
             }
 
-            //setting the total time
-            val myIntent = Intent(holder.itemView.context, TimeActivity::class.java)
-            val total = myIntent.getLongExtra("total", 0)
 
-            println("here is the total from  getLongExtra $total")
-            tvTimeSmall.text = "$total"
+
+            //setting the total time for rach task
+            val timeConverted = timeCoverter(task.taskTime)
+            tvTimeSmall.text = "$timeConverted"
+
+
+            //setting the total time for all tasks
 
         }
+    }
 
+
+
+    fun timeCoverter(total: Long): String{
+        val newTotal2 = String.format(
+            "%02d:%02d:%02d",
+            TimeUnit.MILLISECONDS.toHours(total),
+            TimeUnit.MILLISECONDS.toMinutes(total) -
+                    TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(total)),
+            TimeUnit.MILLISECONDS.toSeconds(total) -
+                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(total))
+        )
+        return newTotal2
     }
 
     override fun getItemCount(): Int {
