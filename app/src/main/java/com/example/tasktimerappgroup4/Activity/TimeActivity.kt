@@ -5,13 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
-import android.widget.Button
-import android.widget.Chronometer
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
+import androidx.lifecycle.ViewModelProvider
 import com.example.tasktimerappgroup4.R
-import com.example.tasktimerappgroup4.RVAdapter
+import com.example.tasktimerappgroup4.TaskViewModel
 import kotlinx.android.synthetic.main.activity_time.*
+import java.util.concurrent.TimeUnit
 
 class TimeActivity : AppCompatActivity() {
 
@@ -26,6 +25,8 @@ class TimeActivity : AppCompatActivity() {
     var pauseOffset: Long = 0
     var total: Long = 0
 
+    lateinit var taskViewModel: TaskViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time)
@@ -37,9 +38,15 @@ class TimeActivity : AppCompatActivity() {
         backButton = findViewById(R.id.backToMainButton)
         timer = findViewById(R.id.chronometer)
 
+        //initializing viewModel
+        taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
 
-        var name = intent.getStringExtra("title")
-        tvNameBig.text = name
+
+        var title = intent.getStringExtra("title")
+        var id = intent.getIntExtra("id", 0)
+        var taskTime = intent.getLongExtra("taskTime", 0)
+
+        tvNameBig.text = title
 
         btnPlayPause.setOnClickListener {
             // When click:
@@ -47,20 +54,21 @@ class TimeActivity : AppCompatActivity() {
             // 2- Start time
 
             //check if timer is running
-            if(running == false){
+            if (running == false) {
                 chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset)
                 //start timer
                 chronometer.start()
                 running = true
-
+                //taskViewModel.updateTaskStatus(true,id)
                 //change button to pause shape
             }
             //if timer is running
-            else if(running == true){
+            else if (running == true) {
                 //pause
                 chronometer.stop()
                 pauseOffset = SystemClock.elapsedRealtime() - chronometer.base
                 running = false
+                //taskViewModel.updateTaskStatus(false,id)
 
                 //change button to start shape
             }
@@ -69,15 +77,27 @@ class TimeActivity : AppCompatActivity() {
         btnRefresh.setOnClickListener {
             // Set time back to 00:00
             chronometer.setBase(SystemClock.elapsedRealtime())
-            Log.d("in the TimeActivity","${pauseOffset / 1000}")
-            total = total + pauseOffset
-            Log.d("in the total","${total}")
+            total = total + pauseOffset + taskTime
+            taskViewModel.updateTaskTime(total, id)
+
             pauseOffset = 0
         }
 
         backButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            //if back button pressed store the running time
+            if (running == true){
+               val toast =  Toast.makeText(baseContext, "please stop the timer before you go back",Toast.LENGTH_LONG)
+                toast.show()
+            }else{
+                //store running timer
+                chronometer.setBase(SystemClock.elapsedRealtime())
+                total = total + pauseOffset + taskTime
+
+                taskViewModel.updateTaskTime(total, id)
+                taskViewModel.updateTaskStatus(false,id)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

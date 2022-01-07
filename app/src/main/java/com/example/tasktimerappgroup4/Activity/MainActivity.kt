@@ -13,11 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasktimerappgroup4.R
-import com.example.tasktimerappgroup4.RVAdapter
+import com.example.tasktimerappgroup4.Adapter.RVAdapter
 import com.example.tasktimerappgroup4.TaskViewModel
-import kotlinx.android.synthetic.main.dialog_builder_add.*
-
-// Comment
 
 class MainActivity : AppCompatActivity() {
     // Variables from activity_main
@@ -28,7 +25,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var rvAdapter: RVAdapter
     lateinit var taskViewModel: TaskViewModel
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,41 +58,44 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun dialogBuild() {
         val dialogBuilder = Dialog(this)
         dialogBuilder.setContentView(R.layout.dialog_builder_add)
         dialogBuilder.window?.setBackgroundDrawableResource(R.drawable.dialog_window)
 
-        var title = dialogBuilder.etTitle.text
-        var details = dialogBuilder.etDetails.text
-        val add = dialogBuilder.btSubmit
+//        var title = dialogBuilder.etTitle.text
+//        var details = dialogBuilder.etDetails.text
+//        val add = dialogBuilder.btSubmit
 
         //button interaction
-        add.setOnClickListener {
-            //add to database functionality
-            if(title.isNotEmpty()||details.isNotEmpty()){
-                taskViewModel.insertTask(dialogBuilder.etTitle.text.toString(),dialogBuilder.etDetails.text.toString(),0,false)
-                Log.d("Add task activity1", "$title has been added")
-                title = null
-                details = null
-                Toast.makeText(
-                    this,
-                    "Task successfully added to database",
-                    Toast.LENGTH_SHORT
-                ).show()
-                dialogBuilder.dismiss()
-            }else{
-                // please fill in all the fields -alert
-                Toast.makeText(
-                    this,
-                    "Please fill in all the required fields",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-        }
-
-        dialogBuilder.show()
+//        add.setOnClickListener {
+//            //add to database functionality
+//            if(title.isNotEmpty()||details.isNotEmpty()){
+//                taskViewModel.insertTask(dialogBuilder.etTitle.text.toString(),dialogBuilder.etDetails.text.toString(),0,false)
+//                Log.d("Add task activity1", "$title has been added")
+//                title = null
+//                details = null
+//                Toast.makeText(
+//                    this,
+//                    "Task successfully added to database",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//                dialogBuilder.dismiss()
+//            }else{
+//                // please fill in all the fields -alert
+//                Toast.makeText(
+//                    this,
+//                    "Please fill in all the required fields",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//
+//        }
+//
+//        dialogBuilder.show()
     }
+
 
 }
