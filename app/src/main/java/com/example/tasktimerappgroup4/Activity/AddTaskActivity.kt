@@ -26,18 +26,15 @@ class addTaskActivity : AppCompatActivity() {
         val add = binding.addButton
 
         add.setOnClickListener {
-            Log.d("Add Activity" , "Add button has been clicked")
-
             if(title.isNotEmpty()||details.isNotEmpty()){
                 taskViewModel.insertTask(binding.etTitle.text.toString(),binding.etDetails.text.toString(),0,false)
-                Log.d("Add task activity1", "$title has been added")
                 binding.etTitle.text = null
                 binding.etDetails.text = null
+
+                //alert task added successfully
             }else{
                 // please fill in all the fields -alert
             }
         }
-
-
     }
 }

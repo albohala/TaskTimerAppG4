@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.tasktimerappgroup4.TasksDao
+import com.example.tasktimerappgroup4.Dao.TasksDao
 import com.example.tasktimerappgroup4.Model.Tasks
 
 
@@ -28,7 +28,6 @@ abstract class TaskDatabase: RoomDatabase() {
                 INSTANCE = roomDatabaseInstance
                 return roomDatabaseInstance
             }
-
         }
 
 

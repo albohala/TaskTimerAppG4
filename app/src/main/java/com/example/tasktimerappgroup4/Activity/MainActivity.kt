@@ -10,10 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasktimerappgroup4.R
-import com.example.tasktimerappgroup4.RVAdapter
+import com.example.tasktimerappgroup4.Adapter.RVAdapter
 import com.example.tasktimerappgroup4.TaskViewModel
-
-// Comment
 
 class MainActivity : AppCompatActivity() {
     // Variables from activity_main
@@ -24,7 +22,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var rvAdapter: RVAdapter
     lateinit var taskViewModel: TaskViewModel
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,16 +48,17 @@ class MainActivity : AppCompatActivity() {
         })
 
         btnAdd.setOnClickListener{
-            // intent to fragment to add data
+            // intent to add task activity
 
             val intent = Intent(this, addTaskActivity::class.java)
             startActivity(intent)
 
         }
-
-
-
     }
+
+
+
+
 //    private fun dialogBuild(){
 //        val dialogBuilder = androidx.appcompat.app.AlertDialog.Builder(this)
 //        dialogBuilder.setView(R.layout.dialog_builder_add)
