@@ -73,12 +73,17 @@ class MainActivity : AppCompatActivity() {
 
         //button interaction
         add.setOnClickListener {
-            //TODO:add task adding functionality
+            //add to database functionality
             if(title.isNotEmpty()||details.isNotEmpty()){
                 taskViewModel.insertTask(dialogBuilder.etTitle.text.toString(),dialogBuilder.etDetails.text.toString(),0,false)
                 Log.d("Add task activity1", "$title has been added")
                 title = null
                 details = null
+                Toast.makeText(
+                    this,
+                    "Task successfully added to database",
+                    Toast.LENGTH_SHORT
+                ).show()
                 dialogBuilder.dismiss()
             }else{
                 // please fill in all the fields -alert
@@ -88,11 +93,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            Toast.makeText(
-                this,
-                "Task successfully added to database",
-                Toast.LENGTH_SHORT
-            ).show()
+
         }
 
         dialogBuilder.show()
