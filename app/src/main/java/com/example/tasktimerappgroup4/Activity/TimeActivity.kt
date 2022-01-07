@@ -46,7 +46,6 @@ class TimeActivity : AppCompatActivity() {
         var id = intent.getIntExtra("id", 0)
         var taskTime = intent.getLongExtra("taskTime", 0)
 
-
         tvNameBig.text = title
 
         btnPlayPause.setOnClickListener {

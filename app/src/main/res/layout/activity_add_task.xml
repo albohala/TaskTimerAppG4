@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvHeader"
+            android:id="@+id/tvHeader1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -29,7 +29,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/tvSub"
+            android:id="@+id/tvSub1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -41,7 +41,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/etTitle"
+            android:id="@+id/etTitle1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -57,7 +57,7 @@
             android:padding="10dp" />
 
         <EditText
-            android:id="@+id/etDetails"
+            android:id="@+id/etDetails1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -73,7 +73,7 @@
             android:padding="10dp" />
 
         <Button
-            android:id="@+id/addButton"
+            android:id="@+id/addButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="150dp"

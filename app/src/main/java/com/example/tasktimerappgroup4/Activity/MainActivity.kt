@@ -1,10 +1,13 @@
 package com.example.tasktimerappgroup4.Activity
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tasktimerappgroup4.R
 import com.example.tasktimerappgroup4.Adapter.RVAdapter
 import com.example.tasktimerappgroup4.TaskViewModel
+import kotlinx.android.synthetic.main.dialog_builder_add.*
 
 class MainActivity : AppCompatActivity() {
     // Variables from activity_main
@@ -48,39 +52,51 @@ class MainActivity : AppCompatActivity() {
         })
 
         btnAdd.setOnClickListener{
-            // intent to add task activity
-
-            val intent = Intent(this, addTaskActivity::class.java)
-            startActivity(intent)
-
+            //pop add task dialog box
+            dialogBuild()
+//            val intent = Intent(this, AddTaskActivity::class.java)
+//            startActivity(intent)
         }
     }
 
 
 
+    private fun dialogBuild() {
+        val dialogBuilder = Dialog(this)
+        dialogBuilder.setContentView(R.layout.dialog_builder_add)
+        dialogBuilder.window?.setBackgroundDrawableResource(R.drawable.dialog_window)
 
-//    private fun dialogBuild(){
-//        val dialogBuilder = androidx.appcompat.app.AlertDialog.Builder(this)
-//        dialogBuilder.setView(R.layout.dialog_builder_add)
-//        title = findViewById(R.id.etTitle)
-//        description = findViewById(R.id.etDetails)
-//
-//        dialogBuilder
-//            // if yes button action is clicked
-//            .setPositiveButton("add", DialogInterface.OnClickListener { _, id ->
-//               //TODO:add task adding functionality
-//
-//                Toast.makeText(
-//                    this,
-//                    "Task successfully added to database",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            })
-//            .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
-//                dialog.cancel()
-//            })
-//        val alert = dialogBuilder.create()
-//        // show alert dialog
-//        alert.show()
-//    }
+        var title = dialogBuilder.etTitle.text
+        var details = dialogBuilder.etDetails.text
+        val add = dialogBuilder.btSubmit
+
+        //button interaction
+        add.setOnClickListener {
+            //add to database functionality
+            if(title.isNotEmpty()||details.isNotEmpty()){
+                taskViewModel.insertTask(dialogBuilder.etTitle.text.toString(),dialogBuilder.etDetails.text.toString(),0,false)
+                Log.d("Add task activity1", "$title has been added")
+                title = null
+                details = null
+                Toast.makeText(
+                    this,
+                    "Task successfully added to database",
+                    Toast.LENGTH_SHORT
+                ).show()
+                dialogBuilder.dismiss()
+            }else{
+                // please fill in all the fields -alert
+                Toast.makeText(
+                    this,
+                    "Please fill in all the required fields",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+        }
+
+        dialogBuilder.show()
+    }
+
+
 }

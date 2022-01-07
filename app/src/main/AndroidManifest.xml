@@ -16,7 +16,7 @@
             android:name=".Activity.updateActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.addTaskActivity"
+            android:name=".Activity.AddTaskActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.TimeActivity"
