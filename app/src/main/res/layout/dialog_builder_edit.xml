@@ -13,7 +13,7 @@
         android:layout_width="141dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
-        android:fontFamily="@font/dosis_medium"
+        android:fontFamily="@font/glacialindifference_bold"
         android:text="Edit Task"
         android:textColor="@color/teal_700"
         android:textSize="20sp"
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="#00EDEDED"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/glacialindifference_bold"
             android:text="update task"
             android:textColor="@color/themed_red"
             android:textSize="16sp" />

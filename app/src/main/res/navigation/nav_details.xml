@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_details"
-    app:startDestination="@id/addFragment">
+    app:startDestination="@id/goToDetailsFragment">
 
-    <fragment
-        android:id="@+id/addFragment"
-        android:name="com.example.tasktimerappgroup4.AddFragment"
-        android:label="fragment_add"
-        tools:layout="@layout/fragment_add" >
-        <action
-            android:id="@+id/action_addFragment_to_timeActivity"
-            app:destination="@id/timeActivity" />
-    </fragment>
     <activity
         android:id="@+id/timeActivity"
         android:name="com.example.tasktimerappgroup4.Activity.TimeActivity"
         android:label="activity_time"
         tools:layout="@layout/activity_time" />
+    <fragment
+        android:id="@+id/goToDetailsFragment"
+        android:name="com.example.tasktimerappgroup4.GoToDetailsFragment"
+        android:label="fragment_go_to_details"
+        tools:layout="@layout/fragment_go_to_details" >
+        <action
+            android:id="@+id/action_goToDetailsFragment_to_timeActivity"
+            app:destination="@id/timeActivity" />
+    </fragment>
 </navigation>

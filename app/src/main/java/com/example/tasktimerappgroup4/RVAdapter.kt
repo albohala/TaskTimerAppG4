@@ -48,9 +48,9 @@ class RVAdapter(private val activity: MainActivity) :
 
             //the cell is pressed
             cellRow.setOnClickListener {
-                val intent = Intent(holder.itemView.context, TimeActivity::class.java)
-                intent.putExtra("title", task.title)
-                holder.itemView.context.startActivity(intent)
+//                val intent = Intent(holder.itemView.context, TimeActivity::class.java)
+//                intent.putExtra("title", task.title)
+//                holder.itemView.context.startActivity(intent)
             }
 
             //the edit button pressed
