@@ -9,7 +9,7 @@ class Tasks (
     @PrimaryKey(autoGenerate = true)
     var id: Int ,
     var title: String,
-    var tasks: String,
+    var description: String,
     var taskTime: Long,
     var isRunning : Boolean
 

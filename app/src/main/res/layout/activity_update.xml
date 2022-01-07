@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="true"
+    android:clipToPadding="true"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    app:cardBackgroundColor="@color/lightgray"
+    app:cardCornerRadius="50dp"
+    app:cardElevation="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="261dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/dosis_medium"
+            android:text="update task"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/dosis_medium"
+            android:text="update title name and describtion below:"
+            android:textColor="@color/blue"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="40dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@color/blue"
+            android:backgroundTintMode="screen"
+            android:ems="10"
+            android:hint="title.."
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/etDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="40dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@color/blue"
+            android:backgroundTintMode="screen"
+            android:ems="10"
+            android:hint="details..."
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/updateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:text="update" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

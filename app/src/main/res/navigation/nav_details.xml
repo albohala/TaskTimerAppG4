@@ -16,7 +16,7 @@
     </fragment>
     <activity
         android:id="@+id/timeActivity"
-        android:name="com.example.tasktimerappgroup4.TimeActivity"
+        android:name="com.example.tasktimerappgroup4.Activity.TimeActivity"
         android:label="activity_time"
         tools:layout="@layout/activity_time" />
 </navigation>
