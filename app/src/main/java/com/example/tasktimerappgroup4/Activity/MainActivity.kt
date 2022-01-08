@@ -16,6 +16,7 @@ import com.example.tasktimerappgroup4.R
 import com.example.tasktimerappgroup4.Adapter.RVAdapter
 import com.example.tasktimerappgroup4.Model.Tasks
 import com.example.tasktimerappgroup4.TaskViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_builder_add.*
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +59,9 @@ class MainActivity : AppCompatActivity() {
 //            val intent = Intent(this, AddTaskActivity::class.java)
 //            startActivity(intent)
         }
+totalTime.setOnClickListener {
+    startActivity(Intent(this, TotalActivity::class.java))
+}
     }
 
 
@@ -67,9 +71,6 @@ class MainActivity : AppCompatActivity() {
         dialogBuilder.setContentView(R.layout.dialog_builder_add)
         dialogBuilder.window?.setBackgroundDrawableResource(R.drawable.dialog_window)
 
-        var title = dialogBuilder.etTitle.text.toString()
-        var details = dialogBuilder.etDetails.text.toString()
-
         var myTitle = dialogBuilder.etTitle.text
         var myDetails = dialogBuilder.etDetails.text
         val add = dialogBuilder.btSubmit
@@ -78,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         add.setOnClickListener {
             //add to database functionality
             if(myTitle.isNotEmpty()||myDetails.isNotEmpty()){
-                val task = Tasks(0,title,details,"00:00","00:00:00",
+                val task = Tasks(0,dialogBuilder.etTitle.text.toString(),dialogBuilder.etDetails.text.toString(),"00:00","00:00:00",
                     isRunning = false,
                     isClicked = false,
                     pauseOffset = 0L
