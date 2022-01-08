@@ -49,11 +49,11 @@ class MainActivity : AppCompatActivity() {
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
 
         //getting and updating notes
-        taskViewModel.getAllTasks().observe(this, {
-                tasks -> rvAdapter.updateData(tasks)
+        taskViewModel.getAllTasks().observe(this, { tasks ->
+            rvAdapter.updateData(tasks)
         })
 
-        btnAdd.setOnClickListener{
+        btnAdd.setOnClickListener {
             //pop add task dialog box
             dialogBuild()
 //            val intent = Intent(this, AddTaskActivity::class.java)
@@ -61,11 +61,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-totalTime.setOnClickListener {
-    startActivity(Intent(this, TotalActivity::class.java))
-}
+        totalTime.setOnClickListener {
+            startActivity(Intent(this, TotalActivity::class.java))
+        }
     }
-
 
 
     private fun dialogBuild() {
@@ -80,8 +79,13 @@ totalTime.setOnClickListener {
         //button interaction
         add.setOnClickListener {
             //add to database functionality
-            if(myTitle.isNotEmpty()||myDetails.isNotEmpty()){
-                val task = Tasks(0,dialogBuilder.etTitle.text.toString(),dialogBuilder.etDetails.text.toString(),"00:00","00:00:00",
+            if (myTitle.isNotEmpty() || myDetails.isNotEmpty()) {
+                val task = Tasks(
+                    0,
+                    dialogBuilder.etTitle.text.toString(),
+                    dialogBuilder.etDetails.text.toString(),
+                    "00:00",
+                    "00:00:00",
                     isRunning = false,
                     isClicked = false,
                     pauseOffset = 0L
@@ -94,7 +98,7 @@ totalTime.setOnClickListener {
                     Toast.LENGTH_SHORT
                 ).show()
                 dialogBuilder.dismiss()
-            }else{
+            } else {
                 // please fill in all the fields -alert
                 Toast.makeText(
                     this,

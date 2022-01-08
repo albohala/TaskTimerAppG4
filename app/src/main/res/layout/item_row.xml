@@ -4,57 +4,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/lightgray"
+    android:background="@android:drawable/divider_horizontal_dark"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/cell_row"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="133dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_cell_bg">
 
         <LinearLayout
-            android:id="@+id/llNameDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvNameSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name"
-                android:textColor="@color/orange"
-                android:textSize="22dp" />
-
-            <TextView
-                android:id="@+id/tvDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Description"
-                android:textSize="16dp" />
-        </LinearLayout>
-
-        <Chronometer
-            android:id="@+id/chronometer"
-            android:layout_width="180dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/llNameDescription"
-            android:background="@drawable/custom_time_bg"
-            android:text="00:00"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="28dp"
-            android:textStyle="bold"
-            android:visibility="visible" />
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/llNameDescription"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNameSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/glacialindifference_bold"
+                    android:text="Name"
+                    android:textColor="@color/themed_purple"
+                    android:textSize="20sp"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/glacialindifference_regular"
+                    android:text="Description"
+                    android:textColor="@color/teal_700"
+                    android:textSize="14sp"
+                    app:autoSizeTextType="uniform" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/iiSideview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Chronometer
+                    android:id="@+id/chronometer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/custom_time_bg"
+                    android:fontFamily="@font/glacialindifference_bold"
+                    android:padding="8dp"
+                    android:text="00:00"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEdit"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bt1"
+                        android:padding="10dp"
+                        app:backgroundTint="@null"
+                        app:icon="@drawable/ic_edit"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDelete"
+                        android:layout_width="44dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bt2"
+                        android:padding="10dp"
+                        app:backgroundTint="@null"
+                        app:icon="@android:drawable/ic_menu_delete"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/llEditDeleteButtons"
@@ -63,34 +111,14 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
             android:layout_marginBottom="5dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/btnEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_round_button"
-                android:backgroundTint="@color/light_blue"
-                android:minWidth="48dp"
-                android:minHeight="48dp"
-                app:srcCompat="@drawable/ic_edit"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <ImageButton
-                android:id="@+id/btnDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:background="@drawable/custom_round_button"
-                android:backgroundTint="@color/light_red"
-                android:minWidth="48dp"
-                android:minHeight="48dp"
-                app:srcCompat="@android:drawable/ic_menu_delete"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <android.widget.Button
                 android:id="@+id/btnStop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,12 +127,13 @@
                 android:drawablePadding="0dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
+                android:src="@drawable/ico_start_stop"
                 android:text="Stop"
                 android:textAllCaps="false"
                 android:textColor="#00BCD4"
                 android:textSize="12sp" />
 
-            <android.widget.Button
+            <ImageButton
                 android:id="@+id/btnRestore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -113,6 +142,7 @@
                 android:drawablePadding="0dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
+                android:src="@drawable/ico_restore"
                 android:text="Restore"
                 android:textAllCaps="false"
                 android:textColor="#00BCD4"
