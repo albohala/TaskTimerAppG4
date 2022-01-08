@@ -16,6 +16,7 @@ import com.example.tasktimerappgroup4.R
 import com.example.tasktimerappgroup4.Adapter.RVAdapter
 import com.example.tasktimerappgroup4.Model.Tasks
 import com.example.tasktimerappgroup4.TaskViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_builder_add.*
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
 //            val intent = Intent(this, AddTaskActivity::class.java)
 //            startActivity(intent)
         }
+
     }
 
 

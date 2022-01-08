@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskTimerAppGroup4">
         <activity
+            android:name=".Activity.TotalActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.updateActivity"
             android:exported="false" />
         <activity
