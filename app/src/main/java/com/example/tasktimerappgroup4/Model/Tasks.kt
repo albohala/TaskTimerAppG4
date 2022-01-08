@@ -10,8 +10,11 @@ class Tasks (
     var id: Int ,
     var title: String,
     var description: String,
-    var taskTime: Long,
-    var isRunning : Boolean
+    var taskTime: String,
+    var totalTime: String,
+    var isRunning : Boolean,
+    var isClicked: Boolean,
+    var pauseOffset: Long
 
 
 )

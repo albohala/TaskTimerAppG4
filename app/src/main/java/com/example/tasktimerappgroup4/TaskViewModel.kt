@@ -28,9 +28,9 @@ class TaskViewModel(application: Application): AndroidViewModel(application) {
         return tasks
     }
 
-    fun insertTask(taskTitle:String,taskDescription:String,taskTime:Long,isRunning:Boolean){
+    fun insertTask(task:Tasks){
         CoroutineScope(IO).launch {
-            repository.insertTask(Tasks(0,taskTitle,taskDescription,0, false))
+            repository.insertTask(task)
 
         }
     }

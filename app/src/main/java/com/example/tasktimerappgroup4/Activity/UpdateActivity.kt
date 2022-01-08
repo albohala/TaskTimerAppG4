@@ -25,8 +25,13 @@ class updateActivity : AppCompatActivity() {
         val title = intent.getStringExtra("title")
         val description= intent.getStringExtra("description")
         val id = intent.getIntExtra("id",0)
-        val taskTime = intent.getLongExtra("taskTime",0)
+        val taskTime = intent.getStringExtra("taskTime").toString()
+        val totalTime = intent.getStringExtra("totalTime").toString()
         val isRunning = intent.getBooleanExtra("isRunning",false)
+        val isClicked = intent.getBooleanExtra("isClicked",false)
+
+        val pauseOffset = intent.getLongExtra("pauseOffset",0)
+
 
 
         binding.etTitle.hint = title
@@ -35,11 +40,12 @@ class updateActivity : AppCompatActivity() {
        binding.updateButton.setOnClickListener{
 
            if (binding.etTitle.text != null && binding.etDetails.text != null) {
+
                val newTitle = binding.etTitle.text.toString()
                val newDescription = binding.etDetails.text.toString()
 
 
-               taskViewModel.updateTask(Tasks(id,newTitle, newDescription,taskTime,isRunning))
+               taskViewModel.updateTask(Tasks(id,newTitle,newDescription,taskTime,totalTime,isRunning,isClicked,pauseOffset))
            }
 
            val intent = Intent(this, MainActivity::class.java)

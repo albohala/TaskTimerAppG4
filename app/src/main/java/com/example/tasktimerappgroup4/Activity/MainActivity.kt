@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasktimerappgroup4.R
 import com.example.tasktimerappgroup4.Adapter.RVAdapter
+import com.example.tasktimerappgroup4.Model.Tasks
 import com.example.tasktimerappgroup4.TaskViewModel
 import kotlinx.android.synthetic.main.dialog_builder_add.*
 
@@ -66,18 +67,24 @@ class MainActivity : AppCompatActivity() {
         dialogBuilder.setContentView(R.layout.dialog_builder_add)
         dialogBuilder.window?.setBackgroundDrawableResource(R.drawable.dialog_window)
 
-        var title = dialogBuilder.etTitle.text
-        var details = dialogBuilder.etDetails.text
+        var title = dialogBuilder.etTitle.text.toString()
+        var details = dialogBuilder.etDetails.text.toString()
+
+        var myTitle = dialogBuilder.etTitle.text
+        var myDetails = dialogBuilder.etDetails.text
         val add = dialogBuilder.btSubmit
 
         //button interaction
         add.setOnClickListener {
             //add to database functionality
-            if(title.isNotEmpty()||details.isNotEmpty()){
-                taskViewModel.insertTask(dialogBuilder.etTitle.text.toString(),dialogBuilder.etDetails.text.toString(),0,false)
+            if(myTitle.isNotEmpty()||myDetails.isNotEmpty()){
+                val task = Tasks(0,title,details,"00:00","00:00:00",
+                    isRunning = false,
+                    isClicked = false,
+                    pauseOffset = 0L
+                )
+                taskViewModel.insertTask(task)
                 Log.d("Add task activity1", "$title has been added")
-                title = null
-                details = null
                 Toast.makeText(
                     this,
                     "Task successfully added to database",
