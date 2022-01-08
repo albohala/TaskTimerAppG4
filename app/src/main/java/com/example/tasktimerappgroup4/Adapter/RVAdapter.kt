@@ -1,5 +1,7 @@
 package com.example.tasktimerappgroup4.Adapter
 
+import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
 import android.util.Log
@@ -17,6 +19,9 @@ import com.example.tasktimerappgroup4.R
 import com.example.tasktimerappgroup4.TaskViewModel
 import com.example.tasktimerappgroup4.databinding.ItemRowBinding
 import kotlinx.android.synthetic.main.activity_time.*
+import kotlinx.android.synthetic.main.dialog_builder_add.*
+import kotlinx.android.synthetic.main.dialog_builder_add.etTitle
+import kotlinx.android.synthetic.main.dialog_builder_edit.*
 import kotlinx.android.synthetic.main.item_row.view.*
 import java.util.concurrent.TimeUnit
 
@@ -26,12 +31,12 @@ class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdap
     var myTasks = arrayListOf<Tasks>()
 
     var total: Long = 0
-
+ lateinit var context:Context
 
     class ItemViewHolder(val binding: ItemRowBinding) : RecyclerView.ViewHolder(binding.root)
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        context=parent.context
         return ItemViewHolder(
             ItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
@@ -107,17 +112,54 @@ class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdap
 
             //the edit button pressed
             btnEdit.setOnClickListener {
+                val dialogBuilder = Dialog(context)
+                dialogBuilder.setContentView(R.layout.dialog_builder_edit)
+                dialogBuilder.window?.setBackgroundDrawableResource(R.drawable.dialog_window)
+
+                var myTitleE = dialogBuilder.etTitleE.text
+                var myDetailsE = dialogBuilder.etDetailsE.text
+                val edit = dialogBuilder.btSubmitE
+
+                //button interaction
+                edit.setOnClickListener {
+                    //add to database functionality
+                    if(myTitleE.isNotEmpty()||myDetailsE.isNotEmpty()){
+                        val task = Tasks(task.id,dialogBuilder.etTitleE.text.toString(),dialogBuilder.etDetailsE.text.toString(),"00:00","00:00:00",
+                            isRunning = false,
+                            isClicked = false,
+                            pauseOffset = 0L
+                        )
+                        activity.taskViewModel.updateTask(task)
+                        Log.d("Add task activity1", "$title has been added")
+                        Toast.makeText(
+                            context,
+                            "Task successfully added to database",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        dialogBuilder.dismiss()
+                    }else{
+                        // please fill in all the fields -alert
+                        Toast.makeText(
+                            context,
+                            "Please fill in all the required fields",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                }
+
+                dialogBuilder.show()
                 //intent to update activite
-                val intent = Intent(holder.itemView.context, updateActivity::class.java)
-                intent.putExtra("id", task.id)
-                intent.putExtra("title", task.title)
-                intent.putExtra("description", task.description)
-                intent.putExtra("taskTime", task.taskTime)
-                intent.putExtra("isRunning", task.isRunning)
-                intent.putExtra("totalTime", task.totalTime)
-                intent.putExtra("isClicked", task.isClicked)
-                intent.putExtra("pauseOffset", task.pauseOffset)
-                holder.itemView.context.startActivity(intent)
+//                val intent = Intent(holder.itemView.context, updateActivity::class.java)
+//                intent.putExtra("id", task.id)
+//                intent.putExtra("title", task.title)
+//                intent.putExtra("description", task.description)
+//                intent.putExtra("taskTime", task.taskTime)
+//                intent.putExtra("isRunning", task.isRunning)
+//                intent.putExtra("totalTime", task.totalTime)
+//                intent.putExtra("isClicked", task.isClicked)
+//                intent.putExtra("pauseOffset", task.pauseOffset)
+//                holder.itemView.context.startActivity(intent)
             }
 
 

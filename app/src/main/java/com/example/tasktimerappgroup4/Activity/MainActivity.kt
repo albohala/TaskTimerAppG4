@@ -60,11 +60,10 @@ class MainActivity : AppCompatActivity() {
 //            startActivity(intent)
         }
 
-        totalTime.setOnClickListener {
-            val myIntent = Intent(this,TotalActivity::class.java)
-            startActivity(myIntent)
-        }
 
+totalTime.setOnClickListener {
+    startActivity(Intent(this, TotalActivity::class.java))
+}
     }
 
 
@@ -73,9 +72,6 @@ class MainActivity : AppCompatActivity() {
         val dialogBuilder = Dialog(this)
         dialogBuilder.setContentView(R.layout.dialog_builder_add)
         dialogBuilder.window?.setBackgroundDrawableResource(R.drawable.dialog_window)
-
-        var title = dialogBuilder.etTitle.text.toString()
-        var details = dialogBuilder.etDetails.text.toString()
 
         var myTitle = dialogBuilder.etTitle.text
         var myDetails = dialogBuilder.etDetails.text
