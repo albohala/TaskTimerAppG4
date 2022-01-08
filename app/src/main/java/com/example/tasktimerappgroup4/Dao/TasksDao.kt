@@ -24,4 +24,6 @@ interface TasksDao {
 
     @Query("UPDATE Tasks SET isRunning = :status WHERE id = :givenId")
     fun updateTaskStatus(status: Boolean, givenId: Int)
+
+
 }
