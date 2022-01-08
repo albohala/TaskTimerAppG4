@@ -59,7 +59,8 @@ class TimeActivity : AppCompatActivity() {
                 //start timer
                 chronometer.start()
                 running = true
-                //taskViewModel.updateTaskStatus(true,id)
+                taskViewModel.updateTaskStatus(true,id)
+
                 //change button to pause shape
             }
             //if timer is running
@@ -68,7 +69,7 @@ class TimeActivity : AppCompatActivity() {
                 chronometer.stop()
                 pauseOffset = SystemClock.elapsedRealtime() - chronometer.base
                 running = false
-                //taskViewModel.updateTaskStatus(false,id)
+                taskViewModel.updateTaskStatus(false,id)
 
                 //change button to start shape
             }
