@@ -41,7 +41,8 @@ class TotalAdapter(private val activity: TotalActivity): RecyclerView.Adapter<To
             val timer = "${task.taskTime}"
 
             tvTotalTitle.text = title
-            tvTotalTime.text = timer
+
+            tvTotalTime.text = timeCoverter(task.pauseOffset)
 
         }
     }

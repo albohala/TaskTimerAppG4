@@ -60,6 +60,11 @@ class MainActivity : AppCompatActivity() {
 //            startActivity(intent)
         }
 
+        totalTime.setOnClickListener {
+            val myIntent = Intent(this,TotalActivity::class.java)
+            startActivity(myIntent)
+        }
+
     }
 
 
@@ -80,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         add.setOnClickListener {
             //add to database functionality
             if(myTitle.isNotEmpty()||myDetails.isNotEmpty()){
-                val task = Tasks(0,title,details,"00:00","00:00:00",
+                val task = Tasks(0,dialogBuilder.etTitle.text.toString(),dialogBuilder.etDetails.text.toString(),"00:00","00:00:00",
                     isRunning = false,
                     isClicked = false,
                     pauseOffset = 0L
