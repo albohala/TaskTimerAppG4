@@ -59,6 +59,8 @@ class MainActivity : AppCompatActivity() {
 //            val intent = Intent(this, AddTaskActivity::class.java)
 //            startActivity(intent)
         }
+
+
 totalTime.setOnClickListener {
     startActivity(Intent(this, TotalActivity::class.java))
 }
