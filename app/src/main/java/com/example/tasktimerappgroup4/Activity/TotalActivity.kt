@@ -32,8 +32,8 @@ class TotalActivity : AppCompatActivity() {
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
 
         //getting and updating notes
-        taskViewModel.getAllTasks().observe(this, {
-                tasks -> rvTotalAdapter.updateData(tasks)
+        taskViewModel.getAllTasks().observe(this, { tasks ->
+            rvTotalAdapter.updateData(tasks)
         })
     }
 }

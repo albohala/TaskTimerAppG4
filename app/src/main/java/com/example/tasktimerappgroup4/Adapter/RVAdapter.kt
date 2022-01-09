@@ -155,11 +155,7 @@ class RVAdapter(private val activity: MainActivity) :
                 activity.taskViewModel.deleteTask(task.id)
             }
 
-
             //setting the total time for rach task
-//            val timeConverted = timeCoverter(task.taskTime)
-//            tvTimeSmall.text = "$timeConverted"
-
 
             //setting the total time for all tasks
 

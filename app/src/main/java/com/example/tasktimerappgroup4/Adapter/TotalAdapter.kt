@@ -9,7 +9,8 @@ import com.example.tasktimerappgroup4.Model.Tasks
 import com.example.tasktimerappgroup4.databinding.TotalRowBinding
 import java.util.concurrent.TimeUnit
 
-class TotalAdapter(private val activity: TotalActivity): RecyclerView.Adapter<TotalAdapter.ItemViewHolder>() {
+class TotalAdapter(private val activity: TotalActivity) :
+    RecyclerView.Adapter<TotalAdapter.ItemViewHolder>() {
 
     var tasksList = emptyList<Tasks>()
 
