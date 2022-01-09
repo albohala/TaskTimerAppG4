@@ -14,6 +14,19 @@
         <entry key="..\:/Users/occ/Desktop/TaskTimerAppG4/app/src/main/res/layout/fragment_add.xml" value="0.19519927536231885" />
         <entry key="..\:/Users/occ/Desktop/TaskTimerAppG4/app/src/main/res/layout/item_row.xml" value="0.22" />
         <entry key="..\:/Users/occ/Desktop/TaskTimerAppG4/app/src/main/res/layout/total_row.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/drawable/custom_cell_bg.xml" value="0.43333333333333335" />
+        <entry key="app/src/main/res/drawable/custom_refresh_bg.xml" value="0.43333333333333335" />
+        <entry key="app/src/main/res/drawable/custom_round_button.xml" value="0.43333333333333335" />
+        <entry key="app/src/main/res/drawable/custom_time_bg.xml" value="0.43333333333333335" />
+        <entry key="app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.43333333333333335" />
+        <entry key="app/src/main/res/drawable/ic_baseline_refresh_24.xml" value="0.43333333333333335" />
+        <entry key="app/src/main/res/layout/activity_launch.xml" value="0.42552083333333335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.42552083333333335" />
+        <entry key="app/src/main/res/layout/activity_total.xml" value="0.42552083333333335" />
+        <entry key="app/src/main/res/layout/fragment_last_inst.xml" value="0.42552083333333335" />
+        <entry key="app/src/main/res/layout/fragment_third_instructions.xml" value="0.15572916666666667" />
+        <entry key="app/src/main/res/layout/item_row.xml" value="0.3234375" />
+        <entry key="app/src/main/res/layout/total_row.xml" value="0.42552083333333335" />
       </map>
     </option>
   </component>

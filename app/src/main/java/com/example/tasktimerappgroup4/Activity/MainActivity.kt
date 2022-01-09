@@ -35,8 +35,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //save app status: first opened or not
-
 
         // Initializing variables from activity_main
         clMain = findViewById(R.id.clMain)
@@ -114,7 +112,4 @@ class MainActivity : AppCompatActivity() {
         dialogBuilder.show()
     }
 
-private fun isFirstLaunch(isFirst:Boolean){
-
-}
 }

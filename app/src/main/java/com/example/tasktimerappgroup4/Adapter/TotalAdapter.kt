@@ -1,19 +1,11 @@
 package com.example.tasktimerappgroup4.Adapter
 
 
-import android.content.Intent
-import android.os.SystemClock
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tasktimerappgroup4.Activity.MainActivity
-import com.example.tasktimerappgroup4.Activity.TimeActivity
 import com.example.tasktimerappgroup4.Activity.TotalActivity
-import com.example.tasktimerappgroup4.Activity.updateActivity
 import com.example.tasktimerappgroup4.Model.Tasks
-import com.example.tasktimerappgroup4.R
-import com.example.tasktimerappgroup4.TaskViewModel
 import com.example.tasktimerappgroup4.databinding.TotalRowBinding
 import java.util.concurrent.TimeUnit
 

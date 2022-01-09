@@ -2,41 +2,34 @@ package com.example.tasktimerappgroup4.Adapter
 
 import android.app.Dialog
 import android.content.Context
-import android.content.Intent
 import android.os.SystemClock
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Chronometer
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasktimerappgroup4.Activity.MainActivity
-//import com.example.tasktimerappgroup4.Activity.TimeActivity
-import com.example.tasktimerappgroup4.Activity.updateActivity
 import com.example.tasktimerappgroup4.Model.Tasks
 import com.example.tasktimerappgroup4.R
-import com.example.tasktimerappgroup4.TaskViewModel
 import com.example.tasktimerappgroup4.databinding.ItemRowBinding
-import kotlinx.android.synthetic.main.activity_time.*
-import kotlinx.android.synthetic.main.dialog_builder_add.*
-import kotlinx.android.synthetic.main.dialog_builder_add.etTitle
+
 import kotlinx.android.synthetic.main.dialog_builder_edit.*
-import kotlinx.android.synthetic.main.item_row.view.*
 import java.util.concurrent.TimeUnit
 
-class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdapter.ItemViewHolder>() {
+class RVAdapter(private val activity: MainActivity) :
+    RecyclerView.Adapter<RVAdapter.ItemViewHolder>() {
 
     var tasksList = emptyList<Tasks>()
     var myTasks = arrayListOf<Tasks>()
 
     var total: Long = 0
- lateinit var context:Context
+    lateinit var context: Context
 
     class ItemViewHolder(val binding: ItemRowBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        context=parent.context
+        context = parent.context
         return ItemViewHolder(
             ItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
@@ -66,7 +59,7 @@ class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdap
             //the cell is pressed
             cellRow.setOnClickListener {
 
-                if(task.isRunning == false && task.isClicked == false){
+                if (task.isRunning == false && task.isClicked == false) {
 
                     chronometer.base = SystemClock.elapsedRealtime() - task.pauseOffset
                     chronometer.start()
@@ -75,15 +68,14 @@ class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdap
                     task.isRunning = true
                     activity.taskViewModel.updateTask(task)
 
-                }
-                else if (task.isClicked == true && task.isRunning == true){
+                } else if (task.isClicked == true && task.isRunning == true) {
                     Log.d("second else", "Please stop the running timer ")
                 }
 
 
-                if(task.isRunning == false){
-                    for (activeTask in tasksList){
-                        if(activeTask.isRunning){
+                if (task.isRunning == false) {
+                    for (activeTask in tasksList) {
+                        if (activeTask.isRunning) {
                             stopTimer(activeTask, chronometer)
                             println("in the stop timer check: ${activeTask.title}")
                         }
@@ -123,8 +115,13 @@ class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdap
                 //button interaction
                 edit.setOnClickListener {
                     //add to database functionality
-                    if(myTitleE.isNotEmpty()||myDetailsE.isNotEmpty()){
-                        val task = Tasks(task.id,dialogBuilder.etTitleE.text.toString(),dialogBuilder.etDetailsE.text.toString(),"00:00","00:00:00",
+                    if (myTitleE.isNotEmpty() || myDetailsE.isNotEmpty()) {
+                        val task = Tasks(
+                            task.id,
+                            dialogBuilder.etTitleE.text.toString(),
+                            dialogBuilder.etDetailsE.text.toString(),
+                            "00:00",
+                            "00:00:00",
                             isRunning = false,
                             isClicked = false,
                             pauseOffset = 0L
@@ -137,7 +134,7 @@ class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdap
                             Toast.LENGTH_SHORT
                         ).show()
                         dialogBuilder.dismiss()
-                    }else{
+                    } else {
                         // please fill in all the fields -alert
                         Toast.makeText(
                             context,
@@ -149,17 +146,7 @@ class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdap
                 }
 
                 dialogBuilder.show()
-                //intent to update activite
-//                val intent = Intent(holder.itemView.context, updateActivity::class.java)
-//                intent.putExtra("id", task.id)
-//                intent.putExtra("title", task.title)
-//                intent.putExtra("description", task.description)
-//                intent.putExtra("taskTime", task.taskTime)
-//                intent.putExtra("isRunning", task.isRunning)
-//                intent.putExtra("totalTime", task.totalTime)
-//                intent.putExtra("isClicked", task.isClicked)
-//                intent.putExtra("pauseOffset", task.pauseOffset)
-//                holder.itemView.context.startActivity(intent)
+
             }
 
 
@@ -190,7 +177,7 @@ class RVAdapter(private val activity: MainActivity): RecyclerView.Adapter<RVAdap
         activity.taskViewModel.updateTask(task)
     }
 
-    private fun restartTimer(task:Tasks, chronometer: Chronometer){
+    private fun restartTimer(task: Tasks, chronometer: Chronometer) {
         task.totalTime = getTotalFromString(task.totalTime, chronometer.text.toString())
         task.taskTime = "00:00"
         chronometer.base = SystemClock.elapsedRealtime()
