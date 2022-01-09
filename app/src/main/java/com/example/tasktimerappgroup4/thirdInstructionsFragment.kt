@@ -24,7 +24,7 @@ class thirdInstructionsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =inflater.inflate(R.layout.fragment_third_instructions, container, false)
         view.fabNext3.setOnClickListener {
-Navigation.findNavController(view).navigate(R.id.action_thirdInstructionsFragment_to_mainActivity)        }
+Navigation.findNavController(view).navigate(R.id.action_thirdInstructionsFragment_to_lastInstFragment)        }
         return view    }
 
 }

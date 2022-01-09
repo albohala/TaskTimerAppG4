@@ -12,29 +12,33 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:background="@drawable/background_total"
-        android:orientation="horizontal"
-
         android:layout_marginTop="10dp"
-        >
+        android:background="@drawable/background_total"
+
+        android:orientation="horizontal"
+        android:padding="5dp">
 
         <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
             android:id="@+id/tvTotalTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:fontFamily="@font/glacialindifference_bold"
             android:text="Workout"
+            android:textColor="@color/teal_700"
             android:textSize="20dp" />
 
         <TextView
-            android:layout_marginTop="10dp"
             android:id="@+id/tvTotalTime"
-            android:layout_marginEnd="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/glacialindifference_regular"
             android:text="00.00.00"
+            android:textColor="@color/themed_purple"
             android:textSize="20dp" />
 
     </LinearLayout>
