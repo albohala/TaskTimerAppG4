@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_go_to_details.view.fabNext
 import kotlinx.android.synthetic.main.fragment_third_instructions.view.*
 
 
-class thirdInstructionsFragment : Fragment() {
+class ThirdInstructionsFragment : Fragment() {
 
 
     override fun onCreateView(

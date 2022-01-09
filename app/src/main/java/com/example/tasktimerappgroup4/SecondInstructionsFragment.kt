@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_second_instructions.view.*
 
-class secondInstructionsFragment : Fragment() {
+class SecondInstructionsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

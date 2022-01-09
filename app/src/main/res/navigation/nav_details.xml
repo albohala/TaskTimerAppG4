@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondInstructionsFragment"
-        android:name="com.example.tasktimerappgroup4.secondInstructionsFragment"
+        android:name="com.example.tasktimerappgroup4.SecondInstructionsFragment"
         android:label="fragment_second_instructions"
         tools:layout="@layout/fragment_second_instructions" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/thirdInstructionsFragment"
-        android:name="com.example.tasktimerappgroup4.thirdInstructionsFragment"
+        android:name="com.example.tasktimerappgroup4.ThirdInstructionsFragment"
         android:label="fragment_third_instructions"
         tools:layout="@layout/fragment_third_instructions" >
         <action
@@ -39,7 +39,7 @@
         tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/lastInstFragment"
-        android:name="com.example.tasktimerappgroup4.lastInstFragment"
+        android:name="com.example.tasktimerappgroup4.LastInstFragment"
         android:label="fragment_last_inst"
         tools:layout="@layout/fragment_last_inst" >
         <action

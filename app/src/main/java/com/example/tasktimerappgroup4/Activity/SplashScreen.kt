@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.example.tasktimerappgroup4.R
+import com.example.tasktimerappgroup4.LaunchActivity
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +14,7 @@ class SplashScreen : AppCompatActivity() {
         supportActionBar?.hide()
 
         Handler().postDelayed(Runnable {
-//            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LaunchActivity::class.java))
         }, 2000)
     }
 }
