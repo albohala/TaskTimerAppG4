@@ -13,19 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskTimerAppGroup4">
         <activity
+            android:name=".Activity.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.TotalActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.updateActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.AddTaskActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activity.TimeActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".launchActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

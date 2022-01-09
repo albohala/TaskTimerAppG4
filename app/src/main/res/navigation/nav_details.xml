@@ -5,18 +5,36 @@
     android:id="@+id/nav_details"
     app:startDestination="@id/goToDetailsFragment">
 
-    <activity
-        android:id="@+id/timeActivity"
-        android:name="com.example.tasktimerappgroup4.Activity.TimeActivity"
-        android:label="activity_time"
-        tools:layout="@layout/activity_time" />
     <fragment
         android:id="@+id/goToDetailsFragment"
         android:name="com.example.tasktimerappgroup4.GoToDetailsFragment"
         android:label="fragment_go_to_details"
         tools:layout="@layout/fragment_go_to_details" >
         <action
-            android:id="@+id/action_goToDetailsFragment_to_timeActivity"
-            app:destination="@id/timeActivity" />
+            android:id="@+id/action_goToDetailsFragment_to_secondInstructionsFragment2"
+            app:destination="@id/secondInstructionsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/secondInstructionsFragment"
+        android:name="com.example.tasktimerappgroup4.secondInstructionsFragment"
+        android:label="fragment_second_instructions"
+        tools:layout="@layout/fragment_second_instructions" >
+        <action
+            android:id="@+id/action_secondInstructionsFragment_to_thirdInstructionsFragment"
+            app:destination="@id/thirdInstructionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdInstructionsFragment"
+        android:name="com.example.tasktimerappgroup4.thirdInstructionsFragment"
+        android:label="fragment_third_instructions"
+        tools:layout="@layout/fragment_third_instructions" >
+        <action
+            android:id="@+id/action_thirdInstructionsFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.tasktimerappgroup4.Activity.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>

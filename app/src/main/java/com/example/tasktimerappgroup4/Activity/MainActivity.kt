@@ -2,9 +2,11 @@ package com.example.tasktimerappgroup4.Activity
 
 import android.app.Dialog
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -28,11 +30,13 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var rvAdapter: RVAdapter
     lateinit var taskViewModel: TaskViewModel
-
+    lateinit var launchShared: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //save app status: first opened or not
+
 
         // Initializing variables from activity_main
         clMain = findViewById(R.id.clMain)
@@ -59,8 +63,6 @@ class MainActivity : AppCompatActivity() {
 //            val intent = Intent(this, AddTaskActivity::class.java)
 //            startActivity(intent)
         }
-
-
         totalTime.setOnClickListener {
             startActivity(Intent(this, TotalActivity::class.java))
         }
@@ -112,5 +114,7 @@ class MainActivity : AppCompatActivity() {
         dialogBuilder.show()
     }
 
+private fun isFirstLaunch(isFirst:Boolean){
 
+}
 }
