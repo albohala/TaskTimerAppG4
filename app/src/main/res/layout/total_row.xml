@@ -2,14 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="2dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="2dp"
+    android:padding="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="58dp"
+        android:background="@drawable/background_total"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="10dp"
+        >
 
         <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
             android:id="@+id/tvTotalTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,7 +29,9 @@
             android:textSize="20dp" />
 
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/tvTotalTime"
+            android:layout_marginEnd="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="00.00.00"
