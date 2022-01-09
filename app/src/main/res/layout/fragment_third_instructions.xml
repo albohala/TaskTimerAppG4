@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".GoToDetailsFragment">
+    tools:context=".thirdInstructionsFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <ImageView
-            android:id="@+id/ivInst"
+            android:id="@+id/ivInst3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/fabNext"
+            android:layout_above="@+id/fabNext3"
             android:layout_marginBottom="7dp"
-            android:src="@drawable/instructions1" />
+            android:src="@drawable/inst3" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/fabNext"
+            android:id="@+id/fabNext3"
             android:layout_width="81dp"
             android:layout_height="81dp"
             android:layout_alignParentEnd="true"
@@ -35,5 +35,4 @@
             app:icon="@drawable/ic_baseline_navigate_next_24"
             tools:ignore="SpeakableTextPresentCheck" />
     </RelativeLayout>
-
 </FrameLayout>
