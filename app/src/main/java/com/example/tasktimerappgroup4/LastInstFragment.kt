@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.fragment_second_instructions.view.*
 import kotlinx.android.synthetic.main.fragment_second_instructions.view.fabNextGo2
 
 
-class lastInstFragment : Fragment() {
+class LastInstFragment : Fragment() {
 
 
     override fun onCreateView(
