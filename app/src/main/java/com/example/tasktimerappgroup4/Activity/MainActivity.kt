@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var rvAdapter: RVAdapter
     lateinit var taskViewModel: TaskViewModel
-    lateinit var launchShared: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,8 +57,7 @@ class MainActivity : AppCompatActivity() {
         btnAdd.setOnClickListener {
             //pop add task dialog box
             dialogBuild()
-//            val intent = Intent(this, AddTaskActivity::class.java)
-//            startActivity(intent)
+
         }
         totalTime.setOnClickListener {
             startActivity(Intent(this, TotalActivity::class.java))

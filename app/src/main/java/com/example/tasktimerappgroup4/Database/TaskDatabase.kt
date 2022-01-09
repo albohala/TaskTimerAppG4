@@ -9,7 +9,7 @@ import com.example.tasktimerappgroup4.Model.Tasks
 
 
 @Database(entities = [Tasks::class], version = 2, exportSchema = false)
-abstract class TaskDatabase: RoomDatabase() {
+abstract class TaskDatabase : RoomDatabase() {
     abstract fun myTasksDao(): TasksDao
 
     companion object {
@@ -24,7 +24,7 @@ abstract class TaskDatabase: RoomDatabase() {
             synchronized(this) {  // protection from concurrent execution on multiple threads
                 val roomDatabaseInstance = Room.databaseBuilder(
                     context.applicationContext, TaskDatabase::class.java, "Tasks"
-                )  .fallbackToDestructiveMigration()
+                ).fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
                     .build()
                 INSTANCE = roomDatabaseInstance

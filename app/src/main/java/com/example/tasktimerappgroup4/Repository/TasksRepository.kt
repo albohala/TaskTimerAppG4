@@ -10,21 +10,23 @@ class TasksRepository(val dao: TasksDao) {
         return dao.getTasks()
     }
 
-    fun insertTask(tasks: Tasks){
+    fun insertTask(tasks: Tasks) {
         dao.insertTask(tasks)
     }
-    fun deleteTasks(id : Int){
+
+    fun deleteTasks(id: Int) {
         dao.deleteTask(id)
     }
-    fun updateTasks(tasks: Tasks){
+
+    fun updateTasks(tasks: Tasks) {
         dao.updateTask(tasks)
     }
 
-    fun updateTaskTime(taskTime: Long, givenId: Int){
-        dao.updateTaskTime(taskTime,givenId)
+    fun updateTaskTime(taskTime: Long, givenId: Int) {
+        dao.updateTaskTime(taskTime, givenId)
     }
 
-    fun updateTaskStatus(status: Boolean, givenId: Int){
-        dao.updateTaskStatus(status,givenId)
+    fun updateTaskStatus(status: Boolean, givenId: Int) {
+        dao.updateTaskStatus(status, givenId)
     }
 }

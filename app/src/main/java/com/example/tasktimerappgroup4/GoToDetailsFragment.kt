@@ -17,9 +17,10 @@ class GoToDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =inflater.inflate(R.layout.fragment_go_to_details, container, false)
+        val view = inflater.inflate(R.layout.fragment_go_to_details, container, false)
         view.findViewById<MaterialButton>(R.id.fabNext).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_goToDetailsFragment_to_secondInstructionsFragment2)
+            Navigation.findNavController(view)
+                .navigate(R.id.action_goToDetailsFragment_to_secondInstructionsFragment2)
         }
         return view
     }

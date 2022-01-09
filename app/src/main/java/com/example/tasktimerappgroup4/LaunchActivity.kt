@@ -24,7 +24,7 @@ class LaunchActivity : AppCompatActivity() {
             editor.putBoolean("first", false)
             editor.apply()
             Log.d("editor2", "$editor, $isFirst")
-        } else if(!isFirst){
+        } else if (!isFirst) {
             startActivity(Intent(this, MainActivity::class.java))
         }
     }

@@ -15,10 +15,12 @@ class SecondInstructionsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =inflater.inflate(R.layout.fragment_second_instructions, container, false)
+        val view = inflater.inflate(R.layout.fragment_second_instructions, container, false)
         view.fabNextGo2.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_secondInstructionsFragment_to_thirdInstructionsFragment)
+            Navigation.findNavController(view)
+                .navigate(R.id.action_secondInstructionsFragment_to_thirdInstructionsFragment)
         }
-        return view    }
+        return view
+    }
 
 }
